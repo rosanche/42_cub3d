@@ -1,6 +1,4 @@
-NAME = cub3D
-
-# include mk/colors.mk
+NAME = Cub3D
 
 SRC = cub3d.c \
 		init.c \
@@ -32,16 +30,16 @@ makelib:
 	@$(MAKE) -C libft
 
 %.o: %.c
-	@echo "$(BOLD)$(BLUE)cub$(patsubst obj/%, %, $(basename $@))$(GREEN)[OK]$(END)"
+	@echo "cub$(patsubst obj/%, %, $(basename $@))[OK]"
 	@$(CC) $(CFLAGS) $(CPPFLAGS) $(INC_PATH) -o $@ -c $<
 
 clean:
 	$(RM) $(OBJ) $(OBJBONUS)
 
 fclean: clean
-	@$(RM) $(NAME)
-	@echo "$(RED)Library deleted$(END)"
-	@echo "$(RED)object files deleted$(END)"
+	@$(RM) $(NAME) Cub3d.bmp
+	@echo "Library deleted"
+	@echo "object files deleted"
 
 re: fclean all
 

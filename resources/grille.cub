@@ -1,7 +1,6 @@
-R 1000 1000
+R           1200           1000
 
 NO ./resources/purplestone.xpm
-
 SO ./resources/redbrick.xpm
 
 WE  ./resources/colorstone.xpm
@@ -10,14 +9,14 @@ EA  ./resources/bluestone.xpm
 
 S  ./resources/barrel.xpm
 
-F  220 , 100 ,0
-C 225 , 30 , 0
+F  250     , 100 ,255
+C    155,   30  ,  0
 
 1111 1111 1 11
 1001 0201 0 01
 1000 0100 1 01
 1100 0000 0 01
-1100 0E00 0 01
-1020 2020 2 01
+1100 0N00 0 01
+1020 2020 2  01
 1000 0220 0 01
 1111 1111 1 11

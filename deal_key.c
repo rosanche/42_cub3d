@@ -60,7 +60,7 @@ void	move(t_cub *cub)
 	double old_d;
 	double rots;
 
-	rots = 0.03;
+	rots = 0.04;
 	if (cub->move.r_right)
 	{
 		old_d = cub->d_y;
@@ -113,8 +113,8 @@ int		deal_key(t_cub *cub)
 	double m;
 	double rots;
 
-	rots = 0.03;
-	m = 0.05;
+	rots = 0.05;
+	m = 0.07;
 	if (cub->move.r_left || cub->move.r_right)
 		move(cub);
 	if (cub->move.front || cub->move.back || cub->move.right)

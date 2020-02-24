@@ -17,7 +17,6 @@ int		load_texture(t_cub *cub)
 	int i;
 
 	i = 0;
-	cub->file.path[4] = "./resources/barrel.xpm";
 	while (i < 5)
 	{
 		if (cub->file.path[i] != NULL)

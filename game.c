@@ -49,15 +49,14 @@ int	save_game(t_cub *cub, int fd)
 		return (error("Problem with your map", cub));
 	if (!width(cub->tab, cub))
 		return (error("Problem with your map", cub));
-	ft_putendl("filled width");
 	if (!check_map(cub))
 		return (-1);
-	ft_putendl("filled and check");
 	p_orient(cub);
-	ft_putendl("filled and check");
 	cub->mlx_ptr = mlx_init();
+	if (!(cub->ptr_img = mlx_new_image(cub->mlx_ptr, cub->w_w, cub->w_h)))
+		return (0);
+	cub->img = mlx_get_data_addr(cub->ptr_img, &cub->bt, &cub->l_size, &cub->e);
 	cub->save = true;
-	ft_putendl("window opened");
 	if (!(raycast(cub)))
 		return (-1);
 	return (0);

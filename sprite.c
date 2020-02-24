@@ -65,7 +65,7 @@ void		prep_sprite(t_sprite s, t_cub *cub, double *zbuffer)
 	x = s.drawstartx;
 	while (x < s.drawendx)
 	{
-		if (s.transformy > 0 && x > 0 && x < cub->w_h
+		if (s.transformy > 0 && x > 0 && x < cub->w_w
 			&& s.transformy < zbuffer[x])
 		{
 			cub->text[4].tex_x = (int)(256 * (x - (-s.spritewidth / 2

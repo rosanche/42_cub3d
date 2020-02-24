@@ -28,8 +28,8 @@ int		get_value(t_cub *cub, char c, int i, int count)
 		if (cub->p_v)
 			return (error("Too many player positions", cub));
 		cub->p_v = c;
-		cub->p_x = i;
-		cub->p_y = count;
+		cub->p_x = i + 0.5;
+		cub->p_y = count + 0.5;
 	}
 	return (1);
 }
@@ -115,7 +115,7 @@ int		main(int ac, char **av)
 	{
 		if ((fd = open(av[1], O_RDONLY)) < 0)
 			return (error("File didn't open", cub));
-		if (ac == 3 && !ft_strcmp(av[2], "-save"))
+		if (ac == 3 && !ft_strcmp(av[2], "--save"))
 			return (create_screenshot(cub, fd));
 		else if (ac == 2)
 			return (start_game(cub, fd));

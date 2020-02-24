@@ -14,29 +14,16 @@
 
 int		error(char *str, t_cub *cub)
 {
-	if (cub != NULL)
-	{
-		ft_strdel(cub->tab->sm);
-		free(cub->tab);
-		free(cub->s);
-		free(cub->dt_sprite);
-		free(cub->or_sprite);
-		free(cub);
-	}
 	ft_putendl("Error");
 	ft_putendl(str);
+	if (cub != NULL)
+		exit(0);
 	return (0);
 }
 
 int		stop(t_cub *cub)
 {
 	mlx_destroy_image(cub->mlx_ptr, cub->ptr_img);
-	ft_strdel(cub->tab->sm);
-	free(cub->tab);
-	free(cub->s);
-	free(cub->dt_sprite);
-	free(cub->or_sprite);
-	free(cub);
 	exit(0);
 	return (0);
 }
@@ -44,11 +31,5 @@ int		stop(t_cub *cub)
 void	destroy(t_cub *cub)
 {
 	mlx_destroy_image(cub->mlx_ptr, cub->ptr_img);
-	ft_strdel(cub->tab->sm);
-	free(cub->tab);
-	free(cub->s);
-	free(cub->dt_sprite);
-	free(cub->or_sprite);
-	free(cub);
 	exit(0);
 }

@@ -167,7 +167,7 @@ void			destroy(t_cub *cub);
 void			p_orient(t_cub *cub);
 int				stop(t_cub *cub);
 int				ft_strlen_tab(char **str);
-int				create_bmp(t_cub *cub);
+int				create_bmp(t_cub *cub, int fd);
 int				start_game(t_cub *cub, int fd);
 int				create_screenshot(t_cub *cub, int fd);
 int				check_map(t_cub *cub);

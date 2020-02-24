@@ -17,9 +17,8 @@ int							create_screenshot(t_cub *cub, int fr)
 	int						fd;
 
 	save_game(cub, fr);
-	fd = open("Cub3d.bmp", O_CREAT);
-	close(fd);
-	create_bmp(cub);
+	fd = open("Cub3D.bmp", O_CREAT | O_RDWR, 416);
+	create_bmp(cub, fd);
 	destroy(cub);
 	return (1);
 }
@@ -65,7 +64,6 @@ unsigned char				*create_file_header(int res_y, int res_x)
 	bmp_file_header[4] = (unsigned char)(nb_octet >> 16);
 	bmp_file_header[5] = (unsigned char)(nb_octet >> 24);
 	bmp_file_header[10] = (unsigned char)(54);
-	printf("bmp file header: %s\n", bmp_file_header);
 	return (bmp_file_header);
 }
 
@@ -90,15 +88,13 @@ unsigned char				*create_bitmap_header(int res_y, int res_x)
 	return (bmp_bitmap_header);
 }
 
-int							create_bmp(t_cub *cub)
+int							create_bmp(t_cub *cub, int fd)
 {
-	int						fd;
 	unsigned char			*file_header;
 	unsigned char			*bitmap_header;
 
 	file_header = create_file_header(cub->w_h - 1, cub->w_w);
 	bitmap_header = create_bitmap_header(cub->w_h - 1, cub->w_w);
-	fd = open("Cub3d.bmp", O_WRONLY);
 	write(fd, file_header, 14);
 	write(fd, bitmap_header, 40);
 	get_pixels(cub, fd, 0);

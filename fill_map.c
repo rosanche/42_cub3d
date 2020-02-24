@@ -22,10 +22,11 @@ int		height_n_fill(int fd, t_cub *cub, char *line)
 	cub->tab->sm[0] = ft_strdup(line);
 	while ((ret = get_next_line(fd, &line)) >= 0 && line)
 	{
-		cub->tab->sm[count] = ft_strdup(line);
-		count++;
 		if (ret == 0)
 			break ;
+		cub->tab->sm[count] = ft_strdup(line);
+		free(line);
+		count++;
 	}
 	cub->tab->map_height = count;
 	free(line);
@@ -55,7 +56,7 @@ int		width(t_gril *grill, t_cub *cub)
 		i = 0;
 		while (grill->sm[count][i])
 		{
-			if (grill->sm[count][i] == ' ')
+			while (grill->sm[count][i] == ' ')
 			{
 				ft_memmove(grill->sm[count] + i, grill->sm[count]
 				+ i + 1, ft_strlen(grill->sm[count]) - i);
